@@ -1,3 +1,3 @@
 *** Variables ***
-${url}              https://unsplash.com/
+${base_urll}              https://unsplash.com/
 ${browser}          chrome

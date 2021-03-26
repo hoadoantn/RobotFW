@@ -1,4 +1,5 @@
 *** Variables ***
+${login_url}                    https://unsplash.com/login
 ${username_locator}             id:user_email
 ${user_password_locator}        id:user_password
 ${login_button_locator}         name:commit

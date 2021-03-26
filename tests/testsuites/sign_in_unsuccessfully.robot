@@ -1,8 +1,9 @@
 *** Settings ***
-Library           SeleniumLibrary
-Resource          ../resources/users.resource
-Resource          ../common_steps/login.robot
-Test Template     Login unsuccessfully
+Library             SeleniumLibrary
+Resource            ../testdata/users.resource
+Resource            ../../common/sign_in.resource
+Test Template       Sign In unsuccessfully
+
 
 *** Test Cases ***              Username                Password                            Expected Message
 Invalid Username                hoadoan@gmail.com       ${logged_user_password}             Invalid email or password.
@@ -12,9 +13,10 @@ Empty Username                  ${EMPTY}                ${logged_user_password} 
 Empty Password                  ${logged_user_name}     ${EMPTY}                            Invalid email or password.
 Empty Username And Password      ${EMPTY}         ${EMPTY}                                  You need to sign in or sign up before continuing.
 
+
 *** Keywords ***
-Login unsuccessfully
+Sign In unsuccessfully
     [Arguments]     ${username}    ${password}      ${expected_mesasge}
-    Login into application   ${username}    ${password}
+    Sign In   ${username}    ${password}
     Page Should Contain    ${expected_mesasge}
     [Teardown]    Close browser
